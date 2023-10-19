@@ -1,0 +1,11 @@
+<script>
+function makeReverse(string) {
+string = string.split("").reverse().join("");
+let rev = string.split(" ");
+rev = rev.reverse();
+let reversedString = rev.join(" ");
+return reversedString;
+}
+let string = "This is sunny day";
+document.write(makeReverse(string));
+</script>
