@@ -1,0 +1,182 @@
+
+<! DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="utf-8">  
+    <title>Rgistration Form </title>
+ <style>  
+    html {  
+background:linear-gradient(to right, #ff33ff, #0033ff);
+  height: 100vh;  
+  display: flex;   
+  justify-content: center;  
+   font-family:italic;  
+}
+
+.err{
+       color:#0000ff;
+       background:#ffff00;
+     }  
+
+.title {  
+margin-bottom: 10px;  
+padding: 5px 0;  
+font-size: 40px;  
+font-weight: bold;  
+text-align: center;  
+color: red;  
+font-family:italic;  
+}  
+
+.Registration {  
+  background-color:white;  
+  box-shadow: 0px 0px 0px 10px #223344;  
+  border: 5px solid blue;  
+  border-radius: 10px; 
+  width:300px; 
+} 
+  
+input[type="submit"]{
+background:linear-gradient(#33ff00,#ffff00);
+border:none;
+width:60px;
+height:25px;
+}
+input[type="reset"]{
+background:linear-gradient(#ffff00,#33ff00);
+border:none;
+width:60px;
+height:25px;
+}
+
+
+input[type="submit"]:hover{
+background:linear-gradient(#ffff00,#33ff00);
+} 
+
+input[type="reset"]:hover{
+background:linear-gradient(#33ff00,#ffff00);
+} 
+
+
+</style>  
+</head>  
+<body>  
+    <div class = "title"  align="center" >  
+        Registration form using HTML  
+    </div>  
+    <form name="Registration" id="f1" class="Registration" >
+     
+     <label >First Name</label><br>
+     <input type="text" id="first" placeholder="Enter Firstname"><br><span id="errfna" class="err"> </span><br>
+     <lable>Last Name</label><br>
+     <input type="text" id="last" placeholder="Enter Lastname"><br><span id="errlna" class="err"> </span><br>
+      <lable>email</label><br>
+      <input type="email" id="email" placeholder="Enter email"><br><br>
+      <label>mobile number</label><br>
+      <input type="text" id="tmob" placeholder="Enter email" ><br><span id="errmob" class="err"> </span><br>
+      <label>Date of birth</label><br>  
+      <input type="date" id="date"><br><br>
+       <label>Gender</label><br>
+       <input type="checkbox" id="gen" name="male" value="male" />
+      <label>male</label>
+        <input type="checkbox" id="gen1" name="female" value="female" />
+      <label>female</label>
+     <input type="checkbox" id="gen2" name="notprefered"          value="notprefered" />
+      <label>Notprefered</label><br><br>
+      <label>Country</label><br>
+      <div class="wrapper">
+       <select id="con">
+           <option value="-1">select country</option>
+           <option value="ind">India</option>
+            <option value="eng">England</option> 
+            <option value="aus">Australia</option>
+            <option value="can">Canada</option>
+             <option value="USA">USA</option>  
+         </select>
+         </div><br>
+        <label>Profession</label><br>
+        <input type="text" id="profe" name="profe" placeholder="Enter Profession"><br><span id="errpro" class="err"> </span><br>
+      <input type="submit" id="sb" name="submit">&nbsp;
+      <input type="reset" id="reset" name="reset">
+
+      </div>
+</form>
+     
+</body>
+</html>
+<script>
+document.getElementById("f1").addEventListener("submit", checkData);
+       function checkData(f) 
+	{
+      let una=document.getElementById("first").value;
+	  const nameexpr = /^[A-Za-z ]*$/; 
+	  if( nameexpr.test(una)==false || una==""){
+         f.preventDefault();
+         document.getElementById("errfna").innerHTML="Plz Enter Valid Name";
+      }else{
+		  document.getElementById("errfna").innerHTML="";
+	  }
+
+
+        let una1=document.getElementById("last").value;
+	  const nameexpr1 = /^[A-Za-z ]*$/; 
+	  if( nameexpr1.test(una1)==false || una1==""){
+         f.preventDefault();
+         document.getElementById("errlna").innerHTML="Plz Enter Valid Name";
+      }else{
+		  document.getElementById("errlna").innerHTML="";
+	  }
+
+
+        let mob=document.getElementById("tmob").value;
+      const mobexpr = /^[789]\d{9}$/;    	
+	  if(mobexpr.test(mob)==false){					
+         f.preventDefault();
+         document.getElementById("errmob").innerHTML="Enter Valid Mobile Number";
+      }else{
+		  document.getElementById("errmob").innerHTML="";
+	  }
+
+
+          let una2=document.getElementById("profe").value;
+	  const nameexpr2 = /^[A-Za-z ]*$/; 
+	  if( nameexpr.test(una2)==false || una2==""){
+         f.preventDefault();
+         document.getElementById("errpro").innerHTML="Plz Enter Valid Name";
+      }else{
+		  document.getElementById("errpro").innerHTML="";
+	  }
+           
+
+            let em=document.getElementById("email").value;
+            let dt=document.getElementById("date").value;
+            let cn=document.getElementById("con").value;
+             
+            var popupWindow = window.open('', 'Popup', 'width=400,height=200');
+            popupWindow.document.write('<p>' +"First Name:  "+una + '</p>');
+            popupWindow.document.write('<p>' +"Last Name: "+una1 + '</p>');
+            popupWindow.document.write('<p>' +"Email: "+em + '</p>'); 
+            popupWindow.document.write('<p>' +"Mobile no: "+mob + '</p>');
+            popupWindow.document.write('<p>' +"Date: "+dt + '</p>');
+            popupWindow.document.write('<p>' +"Country: "+cn + '</p>');
+            popupWindow.document.write('<p>' +"Profession: "+una2 + '</p>');
+           
+            popupWindow.document.close();
+            
+               
+
+
+
+           
+
+       
+        }
+
+               
+   
+  
+</script>
+
+      
+    
